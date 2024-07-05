@@ -46,8 +46,8 @@ class EstudianteForm(ModelForm):
 
     def clean_correo(self):
         valor = self.cleaned_data['correo']
-        if "@" not in valor or "utpl.edu.ec" not in valor:
-            raise forms.ValidationError("Ingrese correo válido para la Universidad")
+        if "@" not in valor or "utpl.edu.ec" not in valor or "gmail.com" not in valor:
+            raise forms.ValidationError("Ingrese correo válido para la Universidad o de gmail")
         return valor
 
 
@@ -55,6 +55,12 @@ class NumeroTelefonicoForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+        
+    def clean_telefono(self):
+        valor = self.cleaned_data['telefono']
+        if len(valor) != 10:
+            raise forms.ValidationError("Ingrese un numero de celular con 10 dígitos")
+        return valor
 
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
@@ -68,3 +74,11 @@ class NumeroTelefonicoEstudianteForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+
+    
+    def clean_telefono(self):
+            valor = self.cleaned_data['telefono']
+            if len(valor) != 10:
+                raise forms.ValidationError("Ingrese un numero de celular con 10 dígitos")
+            return valor
+
