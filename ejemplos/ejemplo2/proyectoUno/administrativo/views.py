@@ -16,6 +16,10 @@ from administrativo.forms import *
 # Create your views here.
 
 def index(request):
+    return render(request, 'index.html')
+
+
+def listar_estudiantes(request):
     """
         Listar los registros del modelo Estudiante,
         obtenidos de la base de datos.
@@ -29,7 +33,8 @@ def index(request):
     # se agregará la información que estará disponible
     # en el template
     informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes)}
-    return render(request, 'index.html', informacion_template)
+    return render(request, 'listarEStudiantes.html', informacion_template)
+
 
 def ingreso(request):
 

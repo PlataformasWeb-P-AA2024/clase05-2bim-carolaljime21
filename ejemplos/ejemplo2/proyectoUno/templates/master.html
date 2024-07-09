@@ -1,16 +1,21 @@
 <!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-
     <title>
         {% block title %}
         {% endblock %}
@@ -18,7 +23,6 @@
 </head>
 
 <body class="is-preload homepage">
-
     {% load socialaccount %}
     {% load account %}
     <div id="page-wrapper">
@@ -29,18 +33,7 @@
 
                 <!-- Logo -->
                 <div id="logo">
-                    <img href="{% url 'index' %}" src="{% static 'images/logo.png' %}" height="10%" width="10%"
-                        alt="My image">
-                </div>
-
-                <div class="">
-                    {% if messages %}
-                    <div class="messages">
-                        {% for message in messages %}
-                        <span{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
-                            {% endfor %}
-                    </div>
-                    {% endif %}
+                    <img href="index.html" src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
                 </div>
 
                 <!-- Nav -->
@@ -51,6 +44,7 @@
                         <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
                         {% endif %}
                         <li><a href="{% url 'index' %}">inicio</a></li>
+                        <li><a href="{% url 'listar_estudiantes' %}">Lista de estudiantes</a></li>
                         <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
                         <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
                         {% if user.is_authenticated %}
@@ -63,15 +57,24 @@
                 </nav>
 
             </header>
-            <section>
-                {% block content %}
-                {% endblock %}
-            </section>
+        </div>
 
-            <footer>
-                <p>Loja-Ecuador</p>
-                <p>{% now "j F Y H:i" %}</p>
-            </footer>
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
+
+        <footer>
+            <p>Loja-Ecuador</p>
+            <p>{% now "j F Y H:i" %}</p>
+        </footer>
+    </div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>
