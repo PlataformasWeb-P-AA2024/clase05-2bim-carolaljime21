@@ -1,4 +1,5 @@
 {% extends "master.html" %}
+{% load static %}
 
 {% block title %}
 Bienvenido
@@ -9,13 +10,15 @@ Bienvenido
   <div id="banner" class="box container">
     <div class="row">
       <div class="col-7 col-12-medium">
-        <h2>Hi. This is Verti.</h2>
-        <p>It's a free responsive site template by HTML5 UP</p>
+        <h2>Hola, esto es la UTPL.</h2>
+        <p>Aquí encontrarás un listado de estudiantes con sus números de celular. <br>
+          Importante: Si desea registrar a un estudiante, deberá iniciar sesión antes.
+        </p>
       </div>
       <div class="col-5 col-12-medium">
         <ul>
-          <li><a href="#" class="button large icon solid fa-arrow-circle-right">Ok let's go</a></li>
-          <li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
+          <li><a href="{% url 'listar_estudiantes' %}" class="button large icon solid fa-arrow-circle-right">Ok veamos</a></li>
+          <li><a href="#" class="button alt large icon solid fa-question-circle">Mas info</a></li>
         </ul>
       </div>
     </div>
@@ -30,7 +33,7 @@ Bienvenido
 
         <!-- Box -->
         <section class="box feature">
-          <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+          <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
           <div class="inner">
             <header>
               <h2>Put something here</h2>
@@ -46,7 +49,7 @@ Bienvenido
 
         <!-- Box -->
         <section class="box feature">
-          <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+          <a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
           <div class="inner">
             <header>
               <h2>An interesting title</h2>
@@ -62,7 +65,7 @@ Bienvenido
 
         <!-- Box -->
         <section class="box feature">
-          <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+          <a href="#" class="image featured"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
           <div class="inner">
             <header>
               <h2>Oh, and finally ...</h2>
@@ -90,10 +93,14 @@ Bienvenido
             <h3>Interesting stuff</h3>
             <div class="grid">
               <div class="row gtr-50">
-                <div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-                <div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-                <div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
-                <div class="col-6"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
+                <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic04.jpg' %}"
+                      alt="" /></a></div>
+                <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic05.jpg' %}"
+                      alt="" /></a></div>
+                <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic06.jpg' %}"
+                      alt="" /></a></div>
+                <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic07.jpg' %}"
+                      alt="" /></a></div>
               </div>
             </div>
             <a href="#" class="button icon fa-file-alt">More</a>
@@ -122,5 +129,7 @@ Bienvenido
       </div>
     </div>
   </div>
+</div>
+
 </div>
 {% endblock %}

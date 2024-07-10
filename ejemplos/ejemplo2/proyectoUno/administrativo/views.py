@@ -130,7 +130,7 @@ def crear_numero_telefonico(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(listar_estudiantes)
     else:
         formulario = NumeroTelefonicoForm()
     diccionario = {'formulario': formulario}
@@ -163,7 +163,7 @@ def crear_numero_telefonico_estudiante(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(listar_estudiantes)
     else:
         formulario = NumeroTelefonicoEstudianteForm(estudiante)
     diccionario = {'formulario': formulario, 'estudiante': estudiante}
